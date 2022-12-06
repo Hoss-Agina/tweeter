@@ -1,0 +1,38 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  height: 120px;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  position: fixed;
+  width:100%;
+}
+
+.tweeter {
+  font-family: 'Bungee', cursive;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  font-size: 40px;
+  padding-top: 15px;
+}
+
+.textRightSide {
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+.rightNavContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fa-solid {
+  display:flex;
+  justify-content: center;
+  color:red; 
+}
+.img {
+  padding-top: 120px;
+}
