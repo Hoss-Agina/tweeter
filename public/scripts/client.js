@@ -7,6 +7,15 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(function() {
+  const $form = $('.form');
+
+  $form.on('submit', function(event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    $.post('/tweets', data, (response) => {
+      console.log(response);
+    })
+  })
 
   const data = [
     {
