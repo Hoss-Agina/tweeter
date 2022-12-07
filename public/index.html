@@ -11,13 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 
     <!-- Font Awesome library link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <script src="https://kit.fontawesome.com/c341eba35e.js" crossorigin="anonymous"></script>
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/display-tweets.css" type="text/css" />
+
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,6 +28,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/display-tweets-effects.js"></script>
   </head>
 
   <body>
@@ -49,6 +53,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form class="form" action="/tweets" method="POST">
@@ -60,6 +65,34 @@
           </div>
         </form>
       </section>
+
+      <!-- tweet container section -->
+      <article>
+        <header class="tweet-header">
+          <div class="icon-and-name">
+            <img class="image-face-icon" src="https://i.imgur.com/ilT4JDe.png">
+            <p class="tweeter-name">Newton</p>
+          </div>
+          <div class="tweeter-username">@SirIsaac</div>
+        </header>
+
+        <p class="tweet">If I have seen further it is by standing on the shoulders of giants</p>
+
+        <footer class="tweet-footer">
+          <p class="days">10 days ago</p>
+          <div class="tweet-icons">
+            <i class="footer-icon fa-solid fa-flag"></i>
+            <i class="footer-icon fa-sharp fa-solid fa-retweet"></i>
+            <i class="footer-icon fa-solid fa-heart"></i>
+          </div>
+        </footer>
+
+      </article>
+
+
+
+
+
     </main>
   </body>
 </html>

@@ -1,4 +1,4 @@
-header {
+body > header {
   background-color: gray;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
   height: 520px;
