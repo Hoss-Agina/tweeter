@@ -32,3 +32,15 @@
   justify-content: flex-start;
   font-weight: bold;
 }
+
+.counter {
+  font-family: 'Bungee', cursive;
+  color: #555149;
+}
+
+.changeCounterColor {
+  color: red; 
+}
+
+
+
