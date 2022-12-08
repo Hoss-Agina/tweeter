@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/display-tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/error.css" type="text/css" />
 
 
     <!-- External JS -->
@@ -38,7 +39,7 @@
       <span class="tweeter">tweeter</span>
       <div class="rightNavContainer">
         <span class="textRightSide"><b>Write</b> a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
+        <i class="fa-sharp fa-solid fa-angles-down"></i>
       </div>
     </nav>
 
@@ -53,10 +54,11 @@
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
 
+    <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <h2 >Compose Tweet</h2>
+        <div id="error-display"></div>
         <form class="form" action="/tweets" method="POST">
           <label for="tweet-text" class="question">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
@@ -66,6 +68,7 @@
           </div>
         </form>
       </section>
+
 
       <!-- tweet container section -->
       <section id="tweets-container"></section>

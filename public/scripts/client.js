@@ -4,20 +4,32 @@ $(document).ready(function() {
 
   $form.on('submit', function(event) {
     event.preventDefault();
-    const data = $(this).serialize();
+    //removing error display message for re-submission in case it appeared before 
+    $('#error-display').empty();
+    //Converting input from user into URI encoded
+    let data = $(this).serialize();
 
     //Removing substring 'text=' from the data string to check its actual data that user entered
     let newData = data.substring(5);
     // Condition to check if user did not enter characters, if yes return alert message
     if (!newData) {
-      return alert("You can not submit if form is empty");
+      console.log(newData);
+      const errorMsg = "You can not submit if form is empty."
+      const $error = loaderror(errorMsg);
+      $error.appendTo('#error-display').hide().slideDown("slow");
+      return;
     }
 
-    //Condition to check if user exceeded 140 characters by first decoding URI then checking length and sending alert relevant msg
+    //Condition to check if user exceeded 140 characters and sending alert relevant msg
     let decodedText = decodeURIComponent(newData);
     if (decodedText.length > 140) {
-      return alert("You can not tweet more than 140 characters. Please reduce message length.")
+      console.log(decodedText);
+      const errorMsg = "You can not tweet more than 140 characters. Please reduce message length."
+      let $error = loaderror(errorMsg);
+      $error.appendTo('#error-display').hide().slideDown("slow");
+      return;
     }
+    //Happy path to proceed with loading tweet if submission is not empty or surpasses 140 chars
     $.post('/tweets', data, (response) => {
       loadtweets();
     })
@@ -31,6 +43,18 @@ $(document).ready(function() {
 
   loadtweets();
 
+  //Error message function that is called if user attempts surpassing 140 characts or does not input any elements 
+  const loaderror = function(someText) {
+    const $msg = $(`
+    <div id="error-msg">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <p>${someText}</p>
+      <i class="fa-solid fa-circle-exclamation"></i>
+    </div>
+    `)
+    return $msg;
+  }
+
   const createTweetElement = function(tweetData) {
     const $tweet = $(`
       <article class="tweet">
@@ -42,7 +66,7 @@ $(document).ready(function() {
           <div class="tweeter-username">${tweetData.user.handle}</div>
         </header>
 
-        <p class="tweet-msg">${tweetData.content.text}</p>
+        <p class="tweet-msg">${escape(tweetData.content.text)}</p>
 
         <footer class="tweet-footer">
           <p class="days">${timeago.format(tweetData.created_at)}</p>
@@ -69,6 +93,12 @@ $(document).ready(function() {
       $('#tweets-container').prepend($tweet);
     }
   }
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
 
 });
