@@ -1,10 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-// Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(function() {
   
   const $form = $('.form');
@@ -12,15 +5,26 @@ $(document).ready(function() {
   $form.on('submit', function(event) {
     event.preventDefault();
     const data = $(this).serialize();
+
+    //Removing substring 'text=' from the data string to check its actual data that user entered
+    let newData = data.substring(5);
+    // Condition to check if user did not enter characters, if yes return alert message
+    if (!newData) {
+      return alert("You can not submit if form is empty");
+    }
+
+    //Condition to check if user exceeded 140 characters by first decoding URI then checking length and sending alert relevant msg
+    let decodedText = decodeURIComponent(newData);
+    if (decodedText.length > 140) {
+      return alert("You can not tweet more than 140 characters. Please reduce message length.")
+    }
     $.post('/tweets', data, (response) => {
-      console.log(response);
       loadtweets();
     })
   })
 
   const loadtweets = function() {
     $.get("/tweets", function(data) {
-      console.log(data);
       renderTweets(data);
     })
   }
@@ -61,7 +65,6 @@ $(document).ready(function() {
     for (tweet of tweets) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet);
-      console.log($tweet);
       // takes return value and appends it to the tweets container
       $('#tweets-container').prepend($tweet);
     }
