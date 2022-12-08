@@ -1,13 +1,16 @@
 $(document).ready(function() { 
 
-  $('article').hover(function() {
-    $(this).addClass("boxshadow")}, 
-    function() {
-      $(this).removeClass("boxshadow")})
+  $("body").on('mouseenter','article', function() {
+    $(this).addClass("boxshadow")})
 
-  $('.footer-icon').hover(function() {
+  $("body").on('mouseleave',"article", function() {
+    $(this).removeClass("boxshadow")})
+
+  $("body").on('mouseenter','.footer-icon', function() {
     $(this).addClass("icon-color-change")
-    $(this).css('cursor', 'pointer')}, 
-    function() {
+    $(this).css('cursor', 'pointer')})
+  
+  $("body").on('mouseleave',".footer-icon", function() {
       $(this).removeClass("icon-color-change")})
+
 });
