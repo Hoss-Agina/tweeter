@@ -19,6 +19,6 @@ App was built with HTML, CSS, JS, jQuery and AJAX front-end skills, and their No
 
 ## Screenshots
 
-!["Tweeter-Desktop-View"] https://github.com/Hoss-Agina/tweeter/blob/master/docs/Desktop-View-Tweeter.png?raw=true 
-!["Tweeter-Mobile-View] https://github.com/Hoss-Agina/tweeter/blob/master/docs/Mobile-View-Tweeter.png?raw=true
-![Text-Box-Error-Display] https://github.com/Hoss-Agina/tweeter/blob/master/docs/Text-Box-Error-Display.png?raw=true 
+!["Tweeter-Desktop-View"](https://github.com/Hoss-Agina/tweeter/blob/master/docs/Desktop-View-Tweeter.png?raw=true)
+!["Tweeter-Mobile-View](https://github.com/Hoss-Agina/tweeter/blob/master/docs/Mobile-View-Tweeter.png?raw=true)
+![Text-Box-Error-Display](https://github.com/Hoss-Agina/tweeter/blob/master/docs/Text-Box-Error-Display.png?raw=true)
