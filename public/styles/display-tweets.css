@@ -60,8 +60,7 @@ article {
 }
 
 .tweet-msg {
-  display:flex;
-  justify-content: flex-start;
+  text-align: start;
   overflow-wrap: break-word;
   margin: 20px 40px;
 }

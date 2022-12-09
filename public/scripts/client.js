@@ -32,6 +32,7 @@ $(document).ready(function() {
     //Happy path to proceed with loading tweet if submission is not empty or surpasses 140 chars
     $.post('/tweets', data, (response) => {
       loadtweets();
+      $("textarea").val("");
     })
   })
 
@@ -39,6 +40,7 @@ $(document).ready(function() {
     $.get("/tweets", function(data) {
       renderTweets(data);
     })
+  
   }
 
   loadtweets();
