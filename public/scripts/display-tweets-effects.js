@@ -1,5 +1,5 @@
 $(document).ready(function() { 
-
+//All code below is to display box shadow on tweet and icon colors when mouse hovers
   $("body").on('mouseenter','article', function() {
     $(this).addClass("boxshadow")})
 

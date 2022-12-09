@@ -10,7 +10,7 @@ $(document).ready(function() {
       counter.addClass("changeCounterColor");
     }
     //Condition to check if counter is a positive number to display default font color
-    if (currCount > 0) {
+    if (currCount >= 0) {
       counter.removeClass("changeCounterColor");
     }
     //Updates character count for user on Display

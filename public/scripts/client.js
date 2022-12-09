@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
   const $form = $('.form');
-
+  //Listening to form Event and executing accordingly
   $form.on('submit', function(event) {
     event.preventDefault();
     //removing error display message for re-submission in case it appeared before 
@@ -14,7 +14,7 @@ $(document).ready(function() {
     // Condition to check if user did not enter characters, if yes return alert message
     if (!newData) {
       console.log(newData);
-      const errorMsg = "You can not submit if form is empty."
+      const errorMsg = "You can not submit if form is empty.";
       const $error = loaderror(errorMsg);
       $error.appendTo('#error-display').hide().slideDown("slow");
       return;
@@ -24,7 +24,7 @@ $(document).ready(function() {
     let decodedText = decodeURIComponent(newData);
     if (decodedText.length > 140) {
       console.log(decodedText);
-      const errorMsg = "You can not tweet more than 140 characters. Please reduce message length."
+      const errorMsg = "You can not tweet more than 140 characters. Please reduce message length.";
       let $error = loaderror(errorMsg);
       $error.appendTo('#error-display').hide().slideDown("slow");
       return;
@@ -32,20 +32,21 @@ $(document).ready(function() {
     //Happy path to proceed with loading tweet if submission is not empty or surpasses 140 chars
     $.post('/tweets', data, (response) => {
       loadtweets();
-      $("textarea").val("");
+      $("textarea").val(""); //Clears compose text area
     })
+    //Reseting the character count value in HTML to 140 after submission.
+    $('output').val("140");
   })
 
   const loadtweets = function() {
     $.get("/tweets", function(data) {
       renderTweets(data);
     })
-  
   }
 
   loadtweets();
 
-  //Error message function that is called if user attempts surpassing 140 characts or does not input any elements 
+  //Function to create Error message is called if user attempts surpassing 140 characts or does not input any elements 
   const loaderror = function(someText) {
     const $msg = $(`
     <div id="error-msg">
@@ -96,11 +97,11 @@ $(document).ready(function() {
     }
   }
 
+  //Escape function for cross site scripting
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
 
 });

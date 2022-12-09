@@ -14,7 +14,7 @@ html {
 
 
 /*
- * Global layout stuff
+ * Global layout CSS
  */
 
 body {
@@ -31,6 +31,29 @@ body {
   margin: 0 auto;
 }
 
-/* #header-and-tweet-container{
-  display: flex;
-} */
+/*
+ * Global layout for Desktop view
+ */
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+  }
+
+  body {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .container {
+    margin-top:130px;
+    width: 50vw;
+  }
+
+  body > header {
+    margin-top:160px;
+    margin-left: 40px;
+    width: 35vw;
+  }
+   
+}
